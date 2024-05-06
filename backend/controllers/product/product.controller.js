@@ -28,9 +28,29 @@ const InsertProductData=  async (req, res) => {
       res.status(500).json({ error: 'Internal server error' });
     }
   };
+  const GetProductData=  async (req, res) => {
+    try {
+      
+  
+     const productData= await Product.find();
+     console.log(productData);
+      const data = {
+        success: true,
+        message: "Product Data Fetched Successfully!",
+        data:productData
+        
+    };
+      res.status(201).json(data);
+    } catch (error) {
+      console.error('Error accessing product data:', error);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  };
+
 
 
   module.exports ={
-    InsertProductData
+    InsertProductData,
+    GetProductData
 
   };

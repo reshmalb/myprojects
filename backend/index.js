@@ -19,7 +19,9 @@ app.use(cors({
   
   // Credential Apis
   app.use("/api/adminauth", require("./routes/adminApi/credentials.route"));
-  app.use("/api/product",require("./routes/productApi/productRoutes.route"))
+  app.use("/api/product",require("./routes/productApi/productRoutes.route"));
+  app.use("/api/user",require("./routes/userApi/userRoutes.route"));
+  app.use("/api/player",require("./routes/playerApi/playerRoute.route"));
   app.listen(port, () => {
     console.log(`Server Listening On http://localhost:${port})`);
 
